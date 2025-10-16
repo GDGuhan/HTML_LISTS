@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<title>HTML Lists Slide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1193d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+<div class="w-full max-w-5xl mx-auto bg-white dark:bg-gray-900/20 rounded-xl shadow-lg overflow-hidden">
+<header class="bg-primary p-6 text-center">
+<h1 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">HTML Lists</h1>
+<p class="mt-2 text-lg text-white/90 max-w-3xl mx-auto">
+          Structuring content effectively with ordered, unordered, and definition lists.
+        </p>
+</header>
+<main class="p-6 sm:p-8 lg:p-10 grid gap-10">
+<section>
+<h2 class="text-2xl font-bold text-primary mb-4">Ordered Lists <code>&lt;ol&gt;</code></h2>
+<p class="mb-4 text-gray-700 dark:text-gray-300">
+            Use ordered lists for items where sequence is important, like steps in a recipe or a ranked list.
+          </p>
+<div class="grid md:grid-cols-2 gap-6 items-start">
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-lg">
+<h3 class="font-semibold text-lg mb-3 text-gray-900 dark:text-white">Example Output:</h3>
+<ol class="list-decimal list-inside space-y-2 pl-2 text-gray-700 dark:text-gray-300">
+<li>First, preheat the oven.</li>
+<li>Second, mix the ingredients.</li>
+<li>Third, bake for 20 minutes.</li>
+</ol>
+</div>
+<div class="bg-gray-800 dark:bg-black p-6 rounded-lg font-mono text-sm text-white overflow-x-auto">
+<h3 class="font-semibold text-lg mb-3 text-gray-300 dark:text-gray-100">HTML Code:</h3>
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;First, preheat the oven.&lt;/li&gt;
+  &lt;li&gt;Second, mix the ingredients.&lt;/li&gt;
+  &lt;li&gt;Third, bake for 20 minutes.&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+</div>
+</div>
+</section>
+<div class="border-t border-gray-200 dark:border-gray-700"></div>
+<section>
+<h2 class="text-2xl font-bold text-primary mb-4">Unordered Lists <code>&lt;ul&gt;</code></h2>
+<p class="mb-4 text-gray-700 dark:text-gray-300">
+            Unordered lists are perfect for items without a specific sequence, like a list of features or ingredients.
+          </p>
+<div class="grid md:grid-cols-2 gap-6 items-start">
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-lg">
+<h3 class="font-semibold text-lg mb-3 text-gray-900 dark:text-white">Example Output:</h3>
+<ul class="list-disc list-inside space-y-2 pl-2 text-gray-700 dark:text-gray-300">
+<li>Apples</li>
+<li>Bananas</li>
+<li>Oranges</li>
+</ul>
+</div>
+<div class="bg-gray-800 dark:bg-black p-6 rounded-lg font-mono text-sm text-white overflow-x-auto">
+<h3 class="font-semibold text-lg mb-3 text-gray-300 dark:text-gray-100">HTML Code:</h3>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Bananas&lt;/li&gt;
+  &lt;li&gt;Oranges&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</div>
+</div>
+</section>
+<div class="border-t border-gray-200 dark:border-gray-700"></div>
+<section>
+<h2 class="text-2xl font-bold text-primary mb-4">Definition Lists <code>&lt;dl&gt;</code></h2>
+<p class="mb-4 text-gray-700 dark:text-gray-300">
+            Definition lists are ideal for glossaries or displaying key-value pairs, clearly associating terms with their descriptions.
+          </p>
+<div class="grid md:grid-cols-2 gap-6 items-start">
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-lg">
+<h3 class="font-semibold text-lg mb-3 text-gray-900 dark:text-white">Example Output:</h3>
+<dl class="space-y-4 text-gray-700 dark:text-gray-300">
+<div>
+<dt class="font-semibold text-gray-900 dark:text-white">HTML</dt>
+<dd class="ml-4">HyperText Markup Language</dd>
+</div>
+<div>
+<dt class="font-semibold text-gray-900 dark:text-white">CSS</dt>
+<dd class="ml-4">Cascading Style Sheets</dd>
+</div>
+</dl>
+</div>
+<div class="bg-gray-800 dark:bg-black p-6 rounded-lg font-mono text-sm text-white overflow-x-auto">
+<h3 class="font-semibold text-lg mb-3 text-gray-300 dark:text-gray-100">HTML Code:</h3>
+<pre><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+
+</body></html>

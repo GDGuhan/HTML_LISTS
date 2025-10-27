@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayurveda Diet & Lifestyle Recommender 🌿</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #a3d89a, #d7f2c2);
+      color: #2b3a2b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #3a6b35;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #4e5d4e;
+    }
+
+    .form-section {
+      margin-bottom: 20px;
+    }
+
+    select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #b3b3b3;
+      width: 80%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #3a6b35;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #2e552a;
+    }
+
+    .result-box {
+      background: #f4fff1;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌿 Ayurveda Diet & Lifestyle Recommender</h1>
+    <p>Discover your personalized Ayurvedic wellness plan.</p>
+
+    <div class="form-section">
+      <label for="dosha">Select Your Body Type (Dosha):</label><br>
+      <select id="dosha">
+        <option value="">-- Choose One --</option>
+        <option value="vata">Vata</option>
+        <option value="pitta">Pitta</option>
+        <option value="kapha">Kapha</option>
+      </select><br>
+      <button onclick="getRecommendation()">Get Recommendation</button>
+    </div>
+
+    <div id="result" class="result-box"></div>
+
+    <footer>
+      <p>Made with ❤️ using HTML, CSS & JS | Rebuild the World Hackathon</p>
+    </footer>
+  </div>
+
+  <script>
+    const recommendations = {
+      vata: {
+        food: "Warm, moist, and grounding foods like soups, rice, milk, ghee, and cooked vegetables.",
+        lifestyle: "Follow a regular routine, sleep early, practice gentle yoga, and keep yourself warm.",
+        yoga: "Focus on calming poses like Child’s Pose, Mountain Pose, and Forward Bend.",
+        tips: "Avoid cold food, skip irregular sleep, and manage stress with meditation."
+      },
+      pitta: {
+        food: "Cool and refreshing foods like cucumber, watermelon, mint, and milk-based dishes.",
+        lifestyle: "Stay cool physically and emotionally. Spend time in nature, avoid overworking.",
+        yoga: "Choose cooling poses like Cobra Pose, Seated Forward Bend, and Moon Salutation.",
+        tips: "Avoid spicy and fried food, take short breaks, and stay hydrated."
+      },
+      kapha: {
+        food: "Light, dry, and warm foods like ginger tea, lentils, apples, and leafy greens.",
+        lifestyle: "Be active, wake up early, and avoid daytime naps.",
+        yoga: "Do energizing poses like Sun Salutation, Warrior Pose, and Twists.",
+        tips: "Avoid dairy and heavy meals, include regular exercise, and stay socially engaged."
+      }
+    };
+
+    function getRecommendation() {
+      const dosha = document.getElementById("dosha").value;
+      const resultDiv = document.getElementById("result");
+
+      if (!dosha) {
+        resultDiv.innerHTML = "<p>Please select your body type first.</p>";
+        return;
+      }
+
+      const rec = recommendations[dosha];
+
+      resultDiv.innerHTML = `
+        <h2>${dosha.charAt(0).toUpperCase() + dosha.slice(1)} Type Recommendations 🌱</h2>
+        <p><strong>🍽 Food:</strong> ${rec.food}</p>
+        <p><strong>🧘 Lifestyle:</strong> ${rec.lifestyle}</p>
+        <p><strong>🧎 Yoga:</strong> ${rec.yoga}</p>
+        <p><strong>💡 Tips:</strong> ${rec.tips}</p>
+      `;
+    }
+  </script>
+</body>
+</html>

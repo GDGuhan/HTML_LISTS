@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Happy Diwali — HTML Only</title>
+</head>
+<body>
+  <!-- Page header -->
+  <header>
+    <h1>🪔 Happy Diwali!</h1>
+    <p>Celebrate light, joy, and fun moments — built using only HTML.</p>
+  </header>
+
+  <!-- Gallery of images (replace src with your image paths) -->
+  <section>
+    <h2>Diya Gallery</h2>
+    <figure>
+      <img src="images/diya1.jpg" alt="Clay diya with flame" width="300" height="200">
+      <figcaption>Traditional clay diya</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/diya2.jpg" alt="Row of lit diyas" width="300" height="200">
+      <figcaption>Row of diyas</figcaption>
+    </figure>
+  </section>
+
+  <!-- Image map (clickable areas) -->
+  <section>
+    <h2>Click a region</h2>
+    <p>Click parts of the image to jump to pages (replace image & links).</p>
+    <img src="images/festival-map.jpg" usemap="#regions" alt="Festival map" width="600" height="300">
+    <map name="regions">
+      <!-- coords are examples; adjust for your image -->
+      <area shape="rect" coords="10,10,150,150" href="page1.html" alt="Diyas region">
+      <area shape="circle" coords="300,150,40" href="page2.html" alt="Fireworks region">
+      <area shape="poly" coords="400,10,500,10,550,80,450,120" href="page3.html" alt="Food stalls">
+    </map>
+  </section>
+
+  <!-- Audio and video -->
+  <section>
+    <h2>Media</h2>
+
+    <p>Play a short festive audio (replace file):</p>
+    <audio controls>
+      <source src="audio/celebration.mp3" type="audio/mpeg">
+      <source src="audio/celebration.ogg" type="audio/ogg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <p>Watch a short video (replace file):</p>
+    <video controls width="480" height="270" poster="images/video-poster.jpg">
+      <source src="video/fireworks.mp4" type="video/mp4">
+      <source src="video/fireworks.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- Funny moments using details/summary (HTML-only interaction) -->
+  <section>
+    <h2>Funny Moments</h2>
+    <details>
+      <summary>Moment 1 — The rocket that ran away</summary>
+      <p>Uncle lit the rocket, it took off and the neighbour's dog thought it was a flying toy. 😂</p>
+    </details>
+
+    <details>
+      <summary>Moment 2 — The sweets mix-up</summary>
+      <p>Someone labeled the ladoos 'for display' — everyone still ate them! 😅</p>
+    </details>
+
+    <details>
+      <summary>Moment 3 — Lamp vs. Ceiling Fan</summary>
+      <p>Attempted to hang a string of diyas from the fan — let's just say it didn't spin very well. 🤣</p>
+    </details>
+  </section>
+
+  <!-- Simple form to collect wishes (HTML-only submit will try to POST; you can change action) -->
+  <section>
+    <h2>Send a Diwali Wish</h2>
+    <form action="#" method="post">
+      <label>
+        Your name:<br>
+        <input type="text" name="name" placeholder="Your name">
+      </label>
+      <br><br>
+      <label>
+        Wish message:<br>
+        <textarea name="wish" rows="4" cols="40" placeholder="Write a short wish..."></textarea>
+      </label>
+      <br><br>
+      <input type="submit" value="Send Wish">
+    </form>
+  </section>
+
+  <!-- Footer with credits -->
+  <footer>
+    <p>Made with ♥ using only HTML. Replace placeholder image/audio/video files with your own to complete the page.</p>
+  </footer>
+</body>
+</html>

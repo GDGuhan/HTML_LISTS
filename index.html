@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
-<title>HTML Lists Slide</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Images and Media</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
+<script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
       theme: {
@@ -26,105 +29,62 @@
       },
     }
   </script>
-<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
-<div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
-<div class="w-full max-w-5xl mx-auto bg-white dark:bg-gray-900/20 rounded-xl shadow-lg overflow-hidden">
-<header class="bg-primary p-6 text-center">
-<h1 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">HTML Lists</h1>
-<p class="mt-2 text-lg text-white/90 max-w-3xl mx-auto">
-          Structuring content effectively with ordered, unordered, and definition lists.
-        </p>
+<div class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+<div class="w-full max-w-4xl mx-auto">
+<header class="text-center mb-8">
+<h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">Embedding Images &amp; Media in HTML</h1>
+<p class="mt-2 text-lg text-gray-600 dark:text-gray-400">Learn how to bring your web pages to life with images and interactive maps.</p>
 </header>
-<main class="p-6 sm:p-8 lg:p-10 grid gap-10">
-<section>
-<h2 class="text-2xl font-bold text-primary mb-4">Ordered Lists <code>&lt;ol&gt;</code></h2>
+<main class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="bg-white/50 dark:bg-black/20 p-6 rounded-lg shadow-md">
+<h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">The `&lt;img&gt;` Tag</h2>
 <p class="mb-4 text-gray-700 dark:text-gray-300">
-            Use ordered lists for items where sequence is important, like steps in a recipe or a ranked list.
+            The `&lt;img&gt;` tag is used to embed an image. It requires the `src` attribute for the image path and the `alt` attribute for accessibility.
           </p>
-<div class="grid md:grid-cols-2 gap-6 items-start">
-<div class="bg-background-light dark:bg-background-dark p-6 rounded-lg">
-<h3 class="font-semibold text-lg mb-3 text-gray-900 dark:text-white">Example Output:</h3>
-<ol class="list-decimal list-inside space-y-2 pl-2 text-gray-700 dark:text-gray-300">
-<li>First, preheat the oven.</li>
-<li>Second, mix the ingredients.</li>
-<li>Third, bake for 20 minutes.</li>
-</ol>
+<div class="bg-gray-100 dark:bg-gray-800 p-4 rounded text-sm text-gray-800 dark:text-gray-200">
+<pre><code class="language-html">&lt;img src="path/to/your/image.jpg" 
+     alt="A descriptive text for the image" 
+     width="500" 
+     height="300"&gt;</code></pre>
 </div>
-<div class="bg-gray-800 dark:bg-black p-6 rounded-lg font-mono text-sm text-white overflow-x-auto">
-<h3 class="font-semibold text-lg mb-3 text-gray-300 dark:text-gray-100">HTML Code:</h3>
-<pre><code>&lt;ol&gt;
-  &lt;li&gt;First, preheat the oven.&lt;/li&gt;
-  &lt;li&gt;Second, mix the ingredients.&lt;/li&gt;
-  &lt;li&gt;Third, bake for 20 minutes.&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
+<div class="mt-6 flex justify-center">
+<img alt="A colorful abstract painting" class="rounded-lg shadow-lg w-full max-w-xs object-cover" height="200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLEqq9JYf5JxRFrKnYqDjohyGJ7yC5p4iSmIV0bKVdss3RhlowSLgRTNO2fvrlj2yaIu3ytmJ4s5izzXg2OO6cKS7tfD1amZLZlIKurLboH6SW1IGTdL0jGyPvhWMGK_jQJwsR0flKz1sV1_gC84WzMoLSdja656_PZfr8qk4XflDs-7nlqY8TH60xpsDoAswjKevlGXwLx1THsbr-AHWcjNURaMnHwDmGG72cLfjhH8jTUx4pCFLbsWD_W3R34l_-vJ3WY8NjrLU" width="300"/>
 </div>
 </div>
-</section>
-<div class="border-t border-gray-200 dark:border-gray-700"></div>
-<section>
-<h2 class="text-2xl font-bold text-primary mb-4">Unordered Lists <code>&lt;ul&gt;</code></h2>
+<div class="bg-white/50 dark:bg-black/20 p-6 rounded-lg shadow-md">
+<h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Image Maps</h2>
 <p class="mb-4 text-gray-700 dark:text-gray-300">
-            Unordered lists are perfect for items without a specific sequence, like a list of features or ingredients.
+            Image maps create clickable areas on an image using `&lt;map&gt;` and `&lt;area&gt;` tags, linking different parts of the image to various URLs.
           </p>
-<div class="grid md:grid-cols-2 gap-6 items-start">
-<div class="bg-background-light dark:bg-background-dark p-6 rounded-lg">
-<h3 class="font-semibold text-lg mb-3 text-gray-900 dark:text-white">Example Output:</h3>
-<ul class="list-disc list-inside space-y-2 pl-2 text-gray-700 dark:text-gray-300">
-<li>Apples</li>
-<li>Bananas</li>
-<li>Oranges</li>
-</ul>
+<div class="bg-gray-100 dark:bg-gray-800 p-4 rounded text-sm text-gray-800 dark:text-gray-200">
+<pre><code class="language-html">&lt;img src="workplace.jpg" alt="Workplace" usemap="#workmap"&gt;
+&lt;map name="workmap"&gt;
+  &lt;area shape="rect" coords="34,44,270,350" href="computer.htm"&gt;
+  &lt;area shape="circle" coords="337,300,44" href="coffee.htm"&gt;
+&lt;/map&gt;</code></pre>
 </div>
-<div class="bg-gray-800 dark:bg-black p-6 rounded-lg font-mono text-sm text-white overflow-x-auto">
-<h3 class="font-semibold text-lg mb-3 text-gray-300 dark:text-gray-100">HTML Code:</h3>
-<pre><code>&lt;ul&gt;
-  &lt;li&gt;Apples&lt;/li&gt;
-  &lt;li&gt;Bananas&lt;/li&gt;
-  &lt;li&gt;Oranges&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-</div>
-</div>
-</section>
-<div class="border-t border-gray-200 dark:border-gray-700"></div>
-<section>
-<h2 class="text-2xl font-bold text-primary mb-4">Definition Lists <code>&lt;dl&gt;</code></h2>
-<p class="mb-4 text-gray-700 dark:text-gray-300">
-            Definition lists are ideal for glossaries or displaying key-value pairs, clearly associating terms with their descriptions.
-          </p>
-<div class="grid md:grid-cols-2 gap-6 items-start">
-<div class="bg-background-light dark:bg-background-dark p-6 rounded-lg">
-<h3 class="font-semibold text-lg mb-3 text-gray-900 dark:text-white">Example Output:</h3>
-<dl class="space-y-4 text-gray-700 dark:text-gray-300">
-<div>
-<dt class="font-semibold text-gray-900 dark:text-white">HTML</dt>
-<dd class="ml-4">HyperText Markup Language</dd>
-</div>
-<div>
-<dt class="font-semibold text-gray-900 dark:text-white">CSS</dt>
-<dd class="ml-4">Cascading Style Sheets</dd>
-</div>
-</dl>
-</div>
-<div class="bg-gray-800 dark:bg-black p-6 rounded-lg font-mono text-sm text-white overflow-x-auto">
-<h3 class="font-semibold text-lg mb-3 text-gray-300 dark:text-gray-100">HTML Code:</h3>
-<pre><code>&lt;dl&gt;
-  &lt;dt&gt;HTML&lt;/dt&gt;
-  &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
-  &lt;dt&gt;CSS&lt;/dt&gt;
-  &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
-&lt;/dl&gt;</code></pre>
+<div class="mt-6 flex justify-center relative">
+<img alt="A desk with a laptop, phone, and a cup of coffee" class="rounded-lg shadow-lg w-full max-w-xs object-cover" height="379" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4tOORxEF41aFnmwQq8Ugcd10TcsgIFURS1gcHjCMxdyejZrIsgocknRS-BFxCfoOTb2I8zCqY_EwNwUfRWutgIAifvJnjyb7hoV09rk0Bb4i3tA8ddWRLmy-KZcYNlIpbeoKH1gHIurpmEvqNGz1uTIHPPH4bXQcPagYEWcjLqzSN_Qm0SjqrzJ_vM7fWU09_UcnekV5_4wOlLgKyfCX2mecAaUC1Z2H04gEWB3ozvwEN8u0ua6G-j7EOvG-phq9pCH_xWD3IAMU" usemap="#workmap" width="400"/>
+<map name="workmap">
+<area alt="Computer" coords="34,44,270,350" href="javascript:alert('You clicked the computer!');" shape="rect" title="Click to learn about the computer"/>
+<area alt="Phone" coords="290,172,333,250" href="javascript:alert('You clicked the phone!');" shape="rect" title="Click to learn about the phone"/>
+<area alt="Coffee" coords="337,300,44" href="javascript:alert('You clicked the coffee cup!');" shape="circle" title="Click to learn about the coffee"/>
+</map>
+<div class="absolute top-0 left-0 w-full h-full">
+<div class="absolute border-2 border-dashed border-primary rounded" style="top: 44px; left: 34px; width: 236px; height: 306px;"></div>
+<div class="absolute border-2 border-dashed border-primary rounded" style="top: 172px; left: 290px; width: 43px; height: 78px;"></div>
+<div class="absolute border-2 border-dashed border-primary rounded-full" style="top: 256px; left: 293px; width: 88px; height: 88px;"></div>
 </div>
 </div>
-</section>
+</div>
 </main>
+<footer class="mt-12 text-center">
+<button class="bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors duration-300 shadow-lg">
+          Next Section: HTML Audio &amp; Video
+        </button>
+</footer>
 </div>
 </div>
 

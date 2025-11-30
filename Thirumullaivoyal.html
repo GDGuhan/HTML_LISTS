@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front-End and Back-End Interface Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef3f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .output {
+      margin-top: 15px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    .backend-log {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #555;
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Front-End Interface</h2>
+    <input type="text" id="username" placeholder="Enter your name">
+    <button onclick="sendToBackend()">Send to Backend</button>
+    <div class="output" id="response"></div>
+
+    <div class="backend-log" id="backendLog">
+      <strong>Back-End Log:</strong><br>
+      (Waiting for front-end data...)
+    </div>
+  </div>
+
+  <script>
+    // --------- Simulated Backend Logic -------------
+    function fakeBackendAPI(data) {
+      return new Promise((resolve) => {
+        // Simulate backend processing delay
+        setTimeout(() => {
+          // Simulate backend response (sending JSON)
+          const response = {
+            message: `Hello, ${data.username}! Your data was received successfully.`,
+            timestamp: new Date().toLocaleTimeString()
+          };
+          document.getElementById("backendLog").innerHTML =
+            `<strong>Back-End Log:</strong><br>Received data: ${JSON.stringify(data)}<br>Processed at: ${response.timestamp}`;
+          resolve(response);
+        }, 1000); // 1 second delay
+      });
+    }
+
+    // --------- Front-End Function -------------
+    async function sendToBackend() {
+      const username = document.getElementById("username").value.trim();
+
+      if (username === "") {
+        alert("Please enter your name!");
+        return;
+      }
+
+      // Simulate front-end sending JSON data to backend
+      const userData = { username: username };
+
+      document.getElementById("response").textContent = "Sending data to backend...";
+
+      // Front-End sends data and waits for backend response
+      const result = await fakeBackendAPI(userData);
+
+      // Display backend's response in front-end
+      document.getElementById("response").textContent = result.message;
+    }
+  </script>
+
+</body>
+</html>

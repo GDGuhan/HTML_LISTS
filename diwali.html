@@ -1,122 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diwali Fun Crackers</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: radial-gradient(circle, #0d0d0d, #000);
-      overflow: hidden;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      color: white;
-      text-align: center;
-    }
-
-    h1 {
-      margin-top: 20px;
-      font-size: 2.5rem;
-      color: gold;
-      text-shadow: 0 0 10px orange, 0 0 20px red;
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 5px orange, 0 0 15px red; }
-      to { text-shadow: 0 0 20px gold, 0 0 40px orange; }
-    }
-
-    .cracker {
-      position: absolute;
-      bottom: 0;
-      width: 4px;
-      height: 40px;
-      background: red;
-      animation: shoot 2s ease-out forwards;
-    }
-
-    @keyframes shoot {
-      0% { bottom: 0; opacity: 1; }
-      80% { bottom: 80%; opacity: 1; }
-      100% { bottom: 80%; opacity: 0; }
-    }
-
-    .burst {
-      position: absolute;
-      border-radius: 50%;
-      background: yellow;
-      width: 10px;
-      height: 10px;
-      opacity: 0;
-      animation: burst 1s ease-out forwards;
-    }
-
-    @keyframes burst {
-      0% { transform: scale(0); opacity: 1; }
-      100% { transform: scale(5); opacity: 0; }
-    }
-
-    .funny-text {
-      position: absolute;
-      font-size: 1.2rem;
-      color: #ffeb3b;
-      text-shadow: 0 0 10px #ff5722;
-      opacity: 0;
-      animation: textPop 2s ease-out forwards;
-    }
-
-    @keyframes textPop {
-      0% { opacity: 0; transform: scale(0.5); }
-      50% { opacity: 1; transform: scale(1.2); }
-      100% { opacity: 0; transform: scale(1); }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Marine Data Intelligence Platform – CMLRE</title>
+<style>
+    body { margin: 0; font-family: Arial; background: #f4f7fb; }
+    .navbar { background: #0c3b8f; color: white; padding: 15px; font-size: 22px; font-weight: bold; }
+    .main { display: flex; }
+    .sidebar { width: 250px; background: #00224e; min-onclick: 100vh; color: white; padding: 25px; }
+    .sidebar a { color: white; display: block; padding: 10px 0; text-decoration: none; font-size: 18px; }
+    .sidebar a:hover { background: rgba(255,255,255,0.15); }
+    .section { flex: 1; padding: 30px; display: none; }
+    h2 { color: #003b8e; }
+    .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+    button { background: #003b8e; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; }
+    input, textarea { padding: 10px; width: 60%; margin-top: 10px; border-radius: 5px; border: 1px solid #aaa; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>🎇 Happy Diwali with Fun 🎇</h1>
 
-  <script>
-    const funnyMessages = [
-      "🤣 Neighbour said: Crackers banned!",
-      "😂 Uncle slipped on banana peel!",
-      "😅 Amma said: 'Light diya, not fridge!'",
-      "🤣 Dog ran away with rocket!",
-      "😂 Friend shouted before it burst!"
-    ];
+<div class="navbar">Marine Data Intelligence Platform – CMLRE</div>
 
-    function launchCracker() {
-      const cracker = document.createElement("div");
-      cracker.classList.add("cracker");
-      cracker.style.left = Math.random() * window.innerWidth + "px";
-      document.body.appendChild(cracker);
+<div class="main">
+    <div class="sidebar">
+        <a onclick="show('dashboard')">Dashboard</a>
+        <a onclick="show('taxonomy')">Taxonomy</a>
+        <a onclick="show('otolith')">Otolith Morphology</a>
+        <a onclick="show('edna')">eDNA Species Detection</a>
+        <a onclick="show('upload')">Data Upload</a>
+    </div>
 
-      setTimeout(() => {
-        const burst = document.createElement("div");
-        burst.classList.add("burst");
-        burst.style.left = cracker.style.left;
-        burst.style.top = "20%";
-        document.body.appendChild(burst);
+    <!-- Dashboard -->
+    <div class="section" id="dashboard">
+        <h2>Ocean Biodiversity Insights</h2>
+        <div class="card"><canvas id="chart"></canvas></div>
+    </div>
 
-        // Funny message
-        const msg = document.createElement("div");
-        msg.classList.add("funny-text");
-        msg.innerText = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
-        msg.style.left = (Math.random() * (window.innerWidth - 200)) + "px";
-        msg.style.top = (Math.random() * (window.innerHeight - 300)) + "px";
-        document.body.appendChild(msg);
+    <!-- Taxonomy -->
+    <div class="section" id="taxonomy">
+        <h2>Taxonomic Classification</h2>
+        <input type="text" placeholder="Search species / family..." id="searchTax" onkeyup="showSpecies()">
+        <p id="result" style="margin-top: 20px; font-size: 18px;"></p>
+    </div>
 
-        setTimeout(() => {
-          burst.remove();
-          msg.remove();
-        }, 2000);
-      }, 1800);
+    <!-- Otolith -->
+    <div class="section" id="otolith">
+        <h2>Otolith Morphology Visualization</h2>
+        <p>Upload otolith images for morphometric analysis.</p>
+        <input type="file">
+    </div>
 
-      setTimeout(() => cracker.remove(), 2000);
+    <!-- eDNA -->
+    <div class="section" id="edna">
+        <h2>eDNA Species Detection</h2>
+        <textarea id="dnaBox" rows="6" placeholder="Paste eDNA sequence here..."></textarea><br><br>
+        <button onclick="alert('Matching species... (placeholder)')">Match Species</button>
+    </div>
+
+    <!-- Upload -->
+    <div class="section" id="upload">
+        <h2>Upload Marine Dataset</h2>
+        <input type="file"><br>
+        <p>Supported formats: CSV, JSON, Excel, Fasta</p>
+    </div>
+</div>
+
+<script>
+// Section Switcher
+function show(section) {
+    document.querySelectorAll('.section').forEach(s => s.style.display = "none");
+    document.getElementById(section).style.display = "block";
+}
+show("dashboard");
+
+// Dashboard chart
+new Chart(document.getElementById("chart"), {
+    type: "line",
+    data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+        datasets: [{
+            label: "Fish Abundance Index",
+            data: [120, 150, 180, 130, 210],
+            borderColor: "#003b8e",
+            borderWidth: 3
+        }]
     }
+});
 
-    setInterval(launchCracker, 2000);
-  </script>
+// Taxonomy search dynamic text
+function showSpecies() {
+    let text = document.getElementById("searchTax").value;
+    document.getElementById("result").innerText =
+        text ? "Showing species results for: " + text : "";
+}
+</script>
+
 </body>
 </html>
